@@ -4,5 +4,5 @@ metadata:
   name: app-cm
   namespace: final
 data:
-  s3_uri: "s3://group9s3/projectbg.jpg"
+  s3_uri: "<bucker uploaded image uri>"
   name: "Group 9"
