@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: final
+  labels:
+    app: employees
+    owner: Group9
+spec:
+  selector:
+    matchLabels:
+      app: employees
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: employees
+    spec:
+      serviceAccountName: clo835
+      containers:
+      - name: webapp3
+        image: 588261622954.dkr.ecr.us-east-1.amazonaws.com/webapp3:v1
+        ports:
+        - name: http
+          containerPort: 81
+          protocol: TCP
+        env:
+        - name: DBHOST
+          value: "db-service.final.svc.cluster.local"
+        - name: DBPORT
+          value: "3306"
+        - name: DBUSER
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: user
+        - name: DBPWD
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: password
+        - name: default_image
+          valueFrom:
+            configMapKeyRef:
+              name: app-cm
+              key: s3_uri

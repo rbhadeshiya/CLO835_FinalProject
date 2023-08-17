@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data
+  namespace: final
+spec:
+  capacity:
+    storage: 100Gi  # Adjust the size to match your EBS volume's size
+  volumeMode: Filesystem  # Adjust as needed
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: gp2  # Use the appropriate storage class
+  awsElasticBlockStore:
+    volumeID: vol-060b289d765f68984  # Specify your existing EBS volume ID

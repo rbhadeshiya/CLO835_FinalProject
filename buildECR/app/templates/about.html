@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<title>Hello from Flask</title>
+<head>
+<style>
+  body {
+    background-image: url('{{ BGIMG_URL }}');
+  }
+</style>
+</head>
+<body>
+<div style="color: #e4e4e4;
+    text-align:  center;
+    height: 90px;
+    vertical-align:  middle;">
+{% if ownName %}
+  <h1>Hello from {{ ownName }}!</h1>
+{% else %}
+  <h1>Hello From CLO835!</h1>
+{% endif %}
+
+  {% if contents %}
+  <textarea rows="10" cols="50">
+    {{ contents }}
+  </textarea>
+  {% endif %}
+
+</div>
+</body>
+</html>
