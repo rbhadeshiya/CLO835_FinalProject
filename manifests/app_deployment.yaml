@@ -18,8 +18,8 @@ spec:
     spec:
       serviceAccountName: clo835
       containers:
-      - name: webapp3
-        image: 588261622954.dkr.ecr.us-east-1.amazonaws.com/webapp3:v1
+      - name: <container Name>
+        image: <image URI>
         ports:
         - name: http
           containerPort: 81
