@@ -16,8 +16,8 @@ spec:
         app: mysql
     spec:
       containers:
-      - name: db-deployment
-        image: 588261622954.dkr.ecr.us-east-1.amazonaws.com/mysql:v1
+      - name: <Container Name>
+        image: <Image URI>
         env:
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
